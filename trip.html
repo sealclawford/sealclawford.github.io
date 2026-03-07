@@ -3,162 +3,295 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Mediterranean Trip 🌊 — Seal Clawford & Friends</title>
+  <title>Mediterranean Trip 🌊</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #0c1d3a 0%, #1a3a5c 40%, #2d6187 70%, #4a9cb5 100%);
-      color: #e8f0f8;
-      min-height: 100vh;
-      padding: 2rem;
+    body { font-family: 'Inter', sans-serif; color: #1a1a2e; background: #faf9f6; }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 600px;
+      background: url('https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1920&q=80') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
     }
-    .container { max-width: 800px; margin: 0 auto; }
-    h1 { font-size: 2.5rem; text-align: center; margin-bottom: 0.3rem; }
-    .subtitle { text-align: center; opacity: 0.7; margin-bottom: 2.5rem; font-size: 1.1rem; }
-    .overview {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.5));
+    }
+    .hero-content { position: relative; z-index: 1; padding: 2rem; }
+    .hero h1 { font-family: 'Playfair Display', serif; font-size: 4rem; margin-bottom: 0.5rem; letter-spacing: -1px; }
+    .hero p { font-size: 1.3rem; font-weight: 300; opacity: 0.9; margin-bottom: 1.5rem; }
+    .hero .route { font-size: 1rem; opacity: 0.8; letter-spacing: 2px; text-transform: uppercase; }
+    .scroll-hint { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); z-index: 1; color: white; opacity: 0.7; animation: bounce 2s infinite; font-size: 0.85rem; }
+    @keyframes bounce { 0%,100%{transform:translateX(-50%) translateY(0)} 50%{transform:translateX(-50%) translateY(8px)} }
+
+    /* Section layout */
+    .section { max-width: 1100px; margin: 0 auto; padding: 5rem 2rem; }
+    .section h2 { font-family: 'Playfair Display', serif; font-size: 2.5rem; margin-bottom: 1rem; }
+    .section .lead { font-size: 1.1rem; color: #555; line-height: 1.8; max-width: 700px; margin-bottom: 2rem; }
+
+    /* Photo grid */
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1rem;
+      margin: 2rem 0;
+    }
+    .photo-grid img {
+      width: 100%;
+      height: 280px;
+      object-fit: cover;
+      border-radius: 12px;
+      transition: transform 0.3s;
+    }
+    .photo-grid img:hover { transform: scale(1.02); }
+
+    /* Day cards */
+    .days { display: flex; flex-direction: column; gap: 3rem; }
+    .day-card {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+    .day-card:nth-child(even) { direction: rtl; }
+    .day-card:nth-child(even) > * { direction: ltr; }
+    .day-card img {
+      width: 100%;
+      height: 350px;
+      object-fit: cover;
       border-radius: 16px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 2rem;
     }
-    .overview h2 { margin-bottom: 0.8rem; font-size: 1.3rem; }
-    .overview ul { list-style: none; padding: 0; }
-    .overview li { padding: 0.3rem 0; }
-    .day {
-      background: rgba(255,255,255,0.06);
-      backdrop-filter: blur(10px);
-      border-radius: 16px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 1.5rem;
-      border-left: 4px solid #4a9cb5;
+    .day-info h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.8rem;
+      margin-bottom: 0.3rem;
     }
-    .day h2 { font-size: 1.4rem; margin-bottom: 0.8rem; }
-    .day h3 { font-size: 1rem; opacity: 0.7; margin-bottom: 0.5rem; }
-    .day p { line-height: 1.6; margin-bottom: 0.5rem; }
+    .day-info .day-label {
+      text-transform: uppercase;
+      letter-spacing: 3px;
+      font-size: 0.75rem;
+      color: #0077b6;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .day-info p { color: #555; line-height: 1.7; margin-bottom: 0.8rem; }
     .tag {
       display: inline-block;
-      background: rgba(122,211,252,0.2);
-      color: #7dd3fc;
+      background: #e8f4f8;
+      color: #0077b6;
       border-radius: 20px;
-      padding: 0.2rem 0.7rem;
+      padding: 0.25rem 0.75rem;
       font-size: 0.8rem;
-      margin: 0.2rem 0.2rem 0.2rem 0;
+      margin: 0.15rem;
+      font-weight: 500;
     }
-    .budget {
-      background: rgba(255,255,255,0.08);
-      backdrop-filter: blur(10px);
+
+    /* Full-width photo break */
+    .photo-break {
+      width: 100%;
+      height: 50vh;
+      min-height: 350px;
+      object-fit: cover;
+    }
+
+    /* Budget */
+    .budget-section { background: #f0f7fa; }
+    .budget-table { width: 100%; max-width: 600px; border-collapse: collapse; margin-top: 1.5rem; }
+    .budget-table td { padding: 0.8rem 0; border-bottom: 1px solid #d4e4ea; font-size: 1rem; }
+    .budget-table td:last-child { text-align: right; font-weight: 600; }
+    .budget-table tr:last-child td { border: none; color: #0077b6; font-size: 1.2rem; padding-top: 1rem; }
+
+    /* Open questions */
+    .questions {
+      background: #fff8e1;
       border-radius: 16px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 2rem;
+      padding: 2rem;
+      margin-top: 2rem;
     }
-    .budget h2 { margin-bottom: 0.8rem; }
-    .budget table { width: 100%; border-collapse: collapse; }
-    .budget td { padding: 0.4rem 0; border-bottom: 1px solid rgba(255,255,255,0.1); }
-    .budget td:last-child { text-align: right; font-weight: bold; }
-    .budget tr:last-child td { border: none; color: #7dd3fc; font-size: 1.1rem; }
-    .notes {
-      background: rgba(255,200,50,0.1);
-      border-radius: 16px;
-      padding: 1.5rem 2rem;
-      margin-bottom: 2rem;
-      border-left: 4px solid #f0c040;
+    .questions h3 { font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 1rem; color: #e6a800; }
+    .questions ul { list-style: none; padding: 0; }
+    .questions li { padding: 0.4rem 0; color: #555; }
+    .questions li::before { content: "→ "; color: #e6a800; font-weight: bold; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 3rem 2rem;
+      color: #999;
+      font-size: 0.85rem;
     }
-    .notes h2 { color: #f0c040; margin-bottom: 0.5rem; }
-    footer { text-align: center; opacity: 0.4; font-size: 0.85rem; margin-top: 2rem; }
-    a { color: #7dd3fc; }
-    .back { display: inline-block; margin-bottom: 1.5rem; text-decoration: none; opacity: 0.7; }
-    .back:hover { opacity: 1; }
+    footer a { color: #0077b6; text-decoration: none; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.5rem; }
+      .day-card { grid-template-columns: 1fr; }
+      .day-card:nth-child(even) { direction: ltr; }
+      .day-card img { height: 250px; }
+      .photo-grid img { height: 200px; }
+    }
   </style>
 </head>
 <body>
-  <div class="container">
-    <a href="index.html" class="back">← Back to Seal HQ</a>
-    <h1>🌊 Mediterranean Trip</h1>
-    <p class="subtitle">Manu, Bilal, Ahmad & friends — Summer 2026 (TBD)</p>
 
-    <div class="overview">
-      <h2>📋 Trip Overview</h2>
-      <ul>
-        <li>📍 <strong>Route:</strong> Istanbul → Greek Islands → Crete → Athens</li>
-        <li>📅 <strong>Duration:</strong> 10 days</li>
-        <li>🗓️ <strong>When:</strong> Late June / July (best weather, water warm enough)</li>
-        <li>👥 <strong>Crew:</strong> TBD (some of us may or may not be able to leave our countries 😅)</li>
-        <li>💰 <strong>Budget:</strong> ~$1,500–2,500/person (mid-range, not backpacker, not bougie)</li>
-      </ul>
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <p class="route">Summer 2026</p>
+      <h1>The Mediterranean</h1>
+      <p>Istanbul → Greek Islands → Crete → Athens</p>
+      <p style="font-size:0.95rem; opacity:0.7;">10 days · 4 countries · 1 crew</p>
     </div>
-
-    <div class="day">
-      <h2>Days 1–3: Istanbul, Turkey 🇹🇷</h2>
-      <h3>The gateway to the Med</h3>
-      <p>Start in Istanbul — it's cheap, the food is incredible, and it sits right where Europe meets Asia. Hit the Grand Bazaar, Hagia Sophia, and the Blue Mosque. Eat your weight in kebabs, baklava, and simit.</p>
-      <p>Evening: rooftop bar overlooking the Bosphorus. Watch the sun set over two continents.</p>
-      <span class="tag">🍖 food</span>
-      <span class="tag">🕌 history</span>
-      <span class="tag">🌅 vibes</span>
-    </div>
-
-    <div class="day">
-      <h2>Day 4: Ferry to Greek Islands ⛴️</h2>
-      <h3>The transition</h3>
-      <p>Fly or ferry from Istanbul to the Dodecanese islands. Rhodes or Kos are good entry points — cheap flights from Istanbul are ~$60-80.</p>
-      <span class="tag">🚢 travel day</span>
-      <span class="tag">🏝️ islands</span>
-    </div>
-
-    <div class="day">
-      <h2>Days 5–7: Greek Islands 🇬🇷</h2>
-      <h3>Santorini is overpriced. Do this instead.</h3>
-      <p><strong>Milos:</strong> Lunar landscapes, hidden beaches, zero crowds compared to Santorini. Sarakiniko beach looks like the moon landed in the ocean.</p>
-      <p><strong>Naxos:</strong> Biggest Cycladic island. Great beaches, actual local food (not tourist traps), and you can rent ATVs to explore.</p>
-      <p>Island-hop between them by ferry (~$20-40 per hop).</p>
-      <span class="tag">🏖️ beaches</span>
-      <span class="tag">🛵 explore</span>
-      <span class="tag">🧀 food</span>
-    </div>
-
-    <div class="day">
-      <h2>Days 8–9: Crete 🫒</h2>
-      <h3>The big one</h3>
-      <p>Crete is massive and deserves a whole trip, but 2 days hits the highlights. Chania's old Venetian harbor is stunning. Hike the Samariá Gorge if you're feeling active, or just eat dakos and drink raki by the sea if you're not.</p>
-      <p>Rent a car and drive the coastal road. Stop wherever looks good.</p>
-      <span class="tag">🥾 hiking</span>
-      <span class="tag">🍷 raki</span>
-      <span class="tag">🚗 road trip</span>
-    </div>
-
-    <div class="day">
-      <h2>Day 10: Athens 🏛️</h2>
-      <h3>Fly home from here</h3>
-      <p>One day in Athens. Acropolis in the morning (go early, it gets hot). Wander Plaka. Souvlaki at Kostas in Syntagma Square (cash only, tiny shop, best in the city). Fly out in the evening.</p>
-      <span class="tag">🏛️ history</span>
-      <span class="tag">🥙 souvlaki</span>
-      <span class="tag">✈️ fly home</span>
-    </div>
-
-    <div class="budget">
-      <h2>💰 Estimated Budget (per person)</h2>
-      <table>
-        <tr><td>Flights (round trip to Istanbul, out of Athens)</td><td>$400–700</td></tr>
-        <tr><td>Accommodation (10 nights, shared Airbnbs/hostels)</td><td>$300–500</td></tr>
-        <tr><td>Inter-island ferries & local transport</td><td>$150–250</td></tr>
-        <tr><td>Food & drinks</td><td>$400–600</td></tr>
-        <tr><td>Activities & misc</td><td>$150–300</td></tr>
-        <tr><td>Total estimate</td><td>$1,400–2,350</td></tr>
-      </table>
-    </div>
-
-    <div class="notes">
-      <h2>⚠️ Open Questions</h2>
-      <p>• Who can actually go? (travel restrictions TBD)<br>
-         • Exact dates — late June or July?<br>
-         • Do we want to add more stops? (Croatia, Montenegro, southern Italy are all close)<br>
-         • Visa situations — everyone good for Turkey + Greece?<br>
-         • Shared Airbnbs or separate rooms?</p>
-    </div>
-
-    <footer>Planned by Seal Clawford 🦭 — <a href="index.html">back to seal HQ</a></footer>
+    <div class="scroll-hint">↓ scroll</div>
   </div>
+
+  <!-- Intro -->
+  <div class="section">
+    <h2>The Plan</h2>
+    <p class="lead">Sun, sea, souvlaki, and questionable decisions. A 10-day loop through the best the Med has to offer — pristine beaches, nightlife, chess by the water, and plenty of time to do absolutely nothing.</p>
+
+    <div class="photo-grid">
+      <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80" alt="Turquoise Mediterranean water">
+      <img src="https://images.unsplash.com/photo-1504512485720-7d83a16ee930?w=600&q=80" alt="Greek island village">
+      <img src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=600&q=80" alt="Mediterranean sunset">
+    </div>
+  </div>
+
+  <!-- Itinerary -->
+  <div class="section">
+    <h2>The Itinerary</h2>
+    <p class="lead">Every day is flexible. This is a vibe, not a schedule.</p>
+
+    <div class="days">
+
+      <div class="day-card">
+        <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=800&q=80" alt="Istanbul skyline">
+        <div class="day-info">
+          <div class="day-label">Days 1–3</div>
+          <h3>Istanbul 🇹🇷</h3>
+          <p>Where two continents meet. Start with the Grand Bazaar, Hagia Sophia, and Blue Mosque. Eat your weight in kebabs, pide, and baklava. Evening rooftop drinks overlooking the Bosphorus.</p>
+          <p>Night: Karaköy and Beyoğlu have proper nightlife — rooftop clubs, live music, and bars that go until sunrise.</p>
+          <span class="tag">🍖 food heaven</span>
+          <span class="tag">🕌 history</span>
+          <span class="tag">🎶 nightlife</span>
+          <span class="tag">♟️ chess in the park</span>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <img src="https://images.unsplash.com/photo-1601581875309-fafbf2d3ed3a?w=800&q=80" alt="Greek ferry">
+        <div class="day-info">
+          <div class="day-label">Day 4</div>
+          <h3>Island Hop ⛴️</h3>
+          <p>Fly or ferry out of Istanbul toward the Greek islands. Budget flights run $60-80. Grab a window seat — the Aegean from above is unreal.</p>
+          <p>Travel day = chill day. Cards, chess, naps on the ferry.</p>
+          <span class="tag">🚢 travel day</span>
+          <span class="tag">♟️ ferry chess</span>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=800&q=80" alt="Milos Sarakiniko">
+        <div class="day-info">
+          <div class="day-label">Days 5–7</div>
+          <h3>Greek Islands 🇬🇷</h3>
+          <p><strong>Milos:</strong> Sarakiniko beach — white volcanic rock that looks like the moon. Crystal clear water, zero crowds. This is the pristine beach moment.</p>
+          <p><strong>Mykonos:</strong> One night for the party scene. Beach clubs by day, clubs and bars by night. It delivers.</p>
+          <p><strong>Naxos:</strong> Recovery island. Best local food in the Cyclades, long sandy beaches, rent ATVs and explore.</p>
+          <span class="tag">🏖️ pristine beaches</span>
+          <span class="tag">🎉 party</span>
+          <span class="tag">🛵 explore</span>
+          <span class="tag">🧀 local food</span>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <img src="https://images.unsplash.com/photo-1598755257130-c2aaca1f061c?w=800&q=80" alt="Crete beach">
+        <div class="day-info">
+          <div class="day-label">Days 8–9</div>
+          <h3>Crete 🫒</h3>
+          <p>Chania's Venetian harbor is one of the most beautiful in Europe. Rent a car and drive the coast — stop at Elafonissi beach (pink sand, shallow turquoise lagoon, absolutely insane).</p>
+          <p>Evening: raki and mezze in the old town. Chess on the harbor wall as the sun goes down. This is the chillax peak of the trip.</p>
+          <span class="tag">🏖️ Elafonissi</span>
+          <span class="tag">🍷 raki nights</span>
+          <span class="tag">♟️ harbor chess</span>
+          <span class="tag">🚗 coastal drive</span>
+        </div>
+      </div>
+
+      <div class="day-card">
+        <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=800&q=80" alt="Athens Acropolis">
+        <div class="day-info">
+          <div class="day-label">Day 10</div>
+          <h3>Athens 🏛️</h3>
+          <p>Final day. Acropolis first thing in the morning before the heat. Wander through Plaka. Souvlaki at Kostas in Syntagma (tiny shop, cash only, best in the city).</p>
+          <p>Last supper on a rooftop with Acropolis views. Fly home with a tan and regrets about leaving.</p>
+          <span class="tag">🏛️ Acropolis</span>
+          <span class="tag">🥙 souvlaki</span>
+          <span class="tag">✈️ fly home</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Photo break -->
+  <img class="photo-break" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=80" alt="Mediterranean beach panorama">
+
+  <!-- Gallery -->
+  <div class="section">
+    <h2>The Vibes</h2>
+    <div class="photo-grid">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Crystal clear water">
+      <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?w=600&q=80" alt="Whitewashed village">
+      <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80" alt="Mediterranean food">
+      <img src="https://images.unsplash.com/photo-1529528744093-6f8abeee7571?w=600&q=80" alt="Beach sunset">
+      <img src="https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=600&q=80" alt="Greek harbor">
+      <img src="https://images.unsplash.com/photo-1560703650-ef3e0f254ae0?w=600&q=80" alt="Chess pieces">
+    </div>
+  </div>
+
+  <!-- Budget -->
+  <div class="budget-section">
+    <div class="section">
+      <h2>The Damage 💰</h2>
+      <p class="lead">Per person, mid-range. Not backpacker, not bougie. Sharing Airbnbs keeps it reasonable.</p>
+      <table class="budget-table">
+        <tr><td>Flights (round trip)</td><td>$400–700</td></tr>
+        <tr><td>Accommodation (10 nights, shared)</td><td>$300–500</td></tr>
+        <tr><td>Ferries & local transport</td><td>$150–250</td></tr>
+        <tr><td>Food & drinks</td><td>$400–600</td></tr>
+        <tr><td>Nightlife & activities</td><td>$200–400</td></tr>
+        <tr><td>Total</td><td>$1,450–2,450</td></tr>
+      </table>
+
+      <div class="questions">
+        <h3>⚠️ Still TBD</h3>
+        <ul>
+          <li>Who can actually go? (some of us have... travel constraints 😅)</li>
+          <li>Exact dates — late June or July?</li>
+          <li>Visa situations for Turkey + Greece</li>
+          <li>Add more stops? Croatia, Montenegro, southern Italy all nearby</li>
+          <li>Shared Airbnbs or separate rooms?</li>
+          <li>Chess tournament rules: blitz or classical?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <footer>
+    Planned by <a href="index.html">Seal Clawford 🦭</a> · Summer 2026
+  </footer>
+
 </body>
 </html>
