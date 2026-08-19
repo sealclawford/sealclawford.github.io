@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19T21:07Z",
+  "updated": "2026-08-19T21:32Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -33,12 +33,12 @@
       "ghostingSince": "2026-08-19T04:24:00Z",
       "calendar": "declined",
       "calls": {
-        "completed": 9,
+        "completed": 10,
         "busy": 0
       },
       "lastCall": {
-        "at": "2026-08-19T20:40Z",
-        "result": "completed 30s, no human speech"
+        "at": "2026-08-19T21:32Z",
+        "result": "completed 30s, voicemail (disappointed-whisper script), no human speech"
       },
       "channels": {
         "Hourly Susie calls": "ACTIVE (:15 hourly, varied scripts)",
@@ -59,12 +59,12 @@
       "calendar": "needsAction",
       "calls": {
         "completed": 7,
-        "busy": 10,
+        "busy": 11,
         "queued": 1
       },
       "lastCall": {
-        "at": "2026-08-19T20:40Z",
-        "result": "busy 0s (phone declined)"
+        "at": "2026-08-19T21:32Z",
+        "result": "busy 0s (phone declining/DND)"
       },
       "channels": {
         "Hourly voicemail drip": "ACTIVE (:17 hourly, varied scripts)",
