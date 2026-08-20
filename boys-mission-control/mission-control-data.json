@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T00:58:33Z",
+  "updated": "2026-08-20T01:27:34Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -33,13 +33,13 @@
       "ghostingSince": "2026-08-19T04:24:00Z",
       "calendar": "declined",
       "calls": {
-        "completed": 14,
+        "completed": 15,
         "busy": 0,
         "total": 1
       },
       "lastCall": {
-        "at": "2026-08-20T00:18:16Z",
-        "result": "voicemail 30s (one-liner, wall-of-shame plug)"
+        "at": "2026-08-20T01:27:34Z",
+        "result": "voicemail landed 30s (whisper/website angle)"
       },
       "channels": {
         "Hourly Susie calls": "ACTIVE (:15 hourly, varied scripts)",
@@ -68,13 +68,13 @@
       "calendar": "needsAction",
       "calls": {
         "completed": 7,
-        "busy": 15,
+        "busy": 16,
         "queued": 1,
         "total": 1
       },
       "lastCall": {
-        "at": "2026-08-20T00:24:10Z",
-        "result": "busy 0s - declined (5th consecutive); show-tune shape attempted"
+        "at": "2026-08-20T01:27:34Z",
+        "result": "busy 0s - 6th consecutive decline; SMS delivered same hour"
       },
       "channels": {
         "Hourly voicemail drip": "ACTIVE (:17 hourly, varied scripts)",
@@ -88,7 +88,7 @@
         "TG voice notes": "SENT (group msg 3312, DM msg 3313 - DM channel OPEN)"
       },
       "sms": {
-        "delivered": 1
+        "delivered": 2
       },
       "lastSms": {
         "at": "2026-08-20T00:08:58Z",
