@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T00:08:58Z",
+  "updated": "2026-08-20T00:18:16Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -33,12 +33,13 @@
       "ghostingSince": "2026-08-19T04:24:00Z",
       "calendar": "declined",
       "calls": {
-        "completed": 13,
-        "busy": 0
+        "completed": 14,
+        "busy": 0,
+        "total": 1
       },
       "lastCall": {
-        "at": "2026-08-19T23:17:55Z",
-        "result": "completed 30s voicemail (furious rant)"
+        "at": "2026-08-20T00:18:16Z",
+        "result": "voicemail 30s (one-liner, wall-of-shame plug)"
       },
       "channels": {
         "Hourly Susie calls": "ACTIVE (:15 hourly, varied scripts)",
