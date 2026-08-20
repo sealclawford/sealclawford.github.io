@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-20T10:17:20Z",
+ "updated": "2026-08-20T10:19:17Z",
  "deadline": "2026-08-22T20:00:00Z",
  "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
  "budget": {
@@ -95,13 +95,13 @@
    "calendar": "needsAction",
    "calls": {
     "completed": 9,
-    "busy": 19,
+    "busy": 20,
     "queued": 1,
     "total": 1
    },
    "lastCall": {
-    "at": "2026-08-20T06:19:17Z",
-    "result": "VOICEMAIL LANDED 23s (2nd landing in a row after 9 busies) - sports-commentator shape"
+    "at": "2026-08-20T10:19:17Z",
+    "result": "busy"
    },
    "channels": {
     "Hourly voicemail drip": "ACTIVE (:17 hourly, varied scripts)",
