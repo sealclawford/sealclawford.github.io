@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T06:19:17Z",
+  "updated": "2026-08-20T07:18:59Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -8,7 +8,7 @@
       {
         "date": "2026-08-18",
         "merchant": "TWILIO INC",
-        "usd": 20.0,
+        "usd": 20,
         "note": "Twilio funding - sealclaw Privacy card. Consumed so far: $14.71 of it; $5.29 remains as balance"
       },
       {
@@ -20,13 +20,13 @@
       {
         "date": "2026-08-19",
         "merchant": "LOB.COM",
-        "usd": 5.0,
+        "usd": 5,
         "note": "Lob credit top-up #1 (postcards channel funding)"
       },
       {
         "date": "2026-08-19",
         "merchant": "LOB.COM",
-        "usd": 10.0,
+        "usd": 10,
         "note": "Lob credit top-up #2 (invoice invc_5b64eea8842bf42) - released the funding-hold path for certified letter ltr_8b01345a9077ad26 + postcard #1"
       }
     ],
@@ -60,13 +60,13 @@
       "ghostingSince": "2026-08-19T04:24:00Z",
       "calendar": "declined",
       "calls": {
-        "completed": 20,
+        "completed": 21,
         "busy": 0,
         "total": 1
       },
       "lastCall": {
-        "at": "2026-08-20T06:17:35Z",
-        "result": "voicemail landed 75s (carrier VM greeting + clerk-shape reply to his TG message) + SMS delivered"
+        "at": "2026-08-20T07:18:59Z",
+        "result": "completed-29s-voicemail"
       },
       "channels": {
         "Hourly Susie calls": "ACTIVE (:15 hourly, varied scripts)",
