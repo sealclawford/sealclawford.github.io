@@ -1,28 +1,55 @@
 {
-  "updated": "2026-08-20T03:19:26Z",
+  "updated": "2026-08-20T03:39:39Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
-    "cap": 100.0,
-    "spent": 70.91,
-    "remaining": 29.09,
-    "lines": [
+    "cap_usd": 100,
+    "card_charges": [
       {
-        "item": "Twilio voice calls (Usage API, since Aug 17)",
-        "cost": 4.3,
-        "when": "2026-08-19 1:49pm PT"
+        "date": "2026-08-18",
+        "merchant": "TWILIO INC",
+        "usd": 20.0,
+        "note": "Twilio funding - sealclaw Privacy card. Consumed so far: $14.71 of it; $5.29 remains as balance"
       },
       {
-        "item": "Insomnia Cookie Cake via Grubhub to Bilal (Large, Double Chocolate Chunk, 'Sorry Your Day Sucked' icing image, message: CONFIRM THE CALL. Saturday. Answer your phone. - Susie)",
-        "cost": 65.52,
-        "when": "2026-08-19 4:38pm ET, ETA 5:15-5:25pm ET"
+        "date": "2026-08-19",
+        "merchant": "GRUBHUB*INSOMNIACOOKIE",
+        "usd": 65.52,
+        "note": "The cake, delivered to Ahmad in Berlin"
       },
       {
-        "item": "Lob postcard #1 to Bilal (4x6, first class) - 'WE KNOW YOU'RE HOME, BILAL.'",
-        "cost": 1.09,
-        "when": "2026-08-19 2:04pm PT, ETA 2026-08-28"
+        "date": "2026-08-19",
+        "merchant": "LOB.COM",
+        "usd": 5.0,
+        "note": "Lob credit top-up #1 (postcards channel funding)"
+      },
+      {
+        "date": "2026-08-19",
+        "merchant": "LOB.COM",
+        "usd": 10.0,
+        "note": "Lob credit top-up #2 (invoice invc_5b64eea8842bf42) - released the funding-hold path for certified letter ltr_8b01345a9077ad26 + postcard #1"
       }
-    ]
+    ],
+    "card_total_usd": 100.52,
+    "consumed": {
+      "cake": 65.52,
+      "twilio_consumed": 14.71,
+      "postcard_1_reserved": 0.99,
+      "certified_letter_committed": 5.21,
+      "postcards_2_5_committed": 3.96,
+      "total_consumed_now": 81.22,
+      "total_consumed_plus_committed": 90.39
+    },
+    "float": {
+      "twilio_balance": 5.29,
+      "lob_credit_balance": 14.01,
+      "lob_after_letter_release": 8.8
+    },
+    "pending_not_charged": {
+      "fiverr_gig_usd": 8.78,
+      "note": "staged; Privacy card declined x2 at Fiverr (merchant-specific block of prepaid cards); awaiting Manuel card via vault"
+    },
+    "verdict": "Card cash-out $100.52 = $0.52 OVER the $100 cap (the $10 Lob top-up did it; running tracker undercounted by not carrying the cake forward). Consumed+committed $90.39 if judged on consumption. NO new spend either way. Fiverr + ringless frozen."
   },
   "targets": [
     {
