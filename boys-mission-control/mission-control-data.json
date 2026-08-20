@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T03:39:39Z",
+  "updated": "2026-08-20T04:18:02Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -60,13 +60,13 @@
       "ghostingSince": "2026-08-19T04:24:00Z",
       "calendar": "declined",
       "calls": {
-        "completed": 17,
+        "completed": 18,
         "busy": 0,
         "total": 1
       },
       "lastCall": {
-        "at": "2026-08-20T03:17:12Z",
-        "result": "voicemail landed 29s (florist-calm confirmation)"
+        "at": "2026-08-20T04:18:02Z",
+        "result": "voicemail 30s - incident-report calm shape"
       },
       "channels": {
         "Hourly Susie calls": "ACTIVE (:15 hourly, varied scripts)",
@@ -79,7 +79,7 @@
       },
       "sms": {
         "failed": 1,
-        "delivered": 2
+        "delivered": 3
       },
       "lastSms": {
         "at": "2026-08-20T00:58:33Z",
