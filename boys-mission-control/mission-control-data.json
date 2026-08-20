@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T05:17:27Z",
+  "updated": "2026-08-20T05:19:15Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -94,14 +94,14 @@
       "ghostingSince": "2026-08-18T16:00:00Z",
       "calendar": "needsAction",
       "calls": {
-        "completed": 7,
+        "completed": 8,
         "busy": 19,
         "queued": 1,
         "total": 1
       },
       "lastCall": {
-        "at": "2026-08-20T04:19:50Z",
-        "result": "busy 0s - 9th consecutive decline (phone call-walling us), boarding-PA shape"
+        "at": "2026-08-20T05:19:15Z",
+        "result": "VOICEMAIL LANDED 24s after 9 consecutive declines - bedtime-story shape"
       },
       "channels": {
         "Hourly voicemail drip": "ACTIVE (:17 hourly, varied scripts)",
