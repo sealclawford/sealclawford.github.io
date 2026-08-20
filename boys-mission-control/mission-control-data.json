@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T03:17:12Z",
+  "updated": "2026-08-20T03:19:26Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -68,13 +68,13 @@
       "calendar": "needsAction",
       "calls": {
         "completed": 7,
-        "busy": 17,
+        "busy": 18,
         "queued": 1,
         "total": 1
       },
       "lastCall": {
-        "at": "2026-08-20T02:20:04Z",
-        "result": "busy 0s - 7th consecutive decline (deadpan one-liner)"
+        "at": "2026-08-20T03:19:26Z",
+        "result": "busy 0s - 8th consecutive decline (USPS rant)"
       },
       "channels": {
         "Hourly voicemail drip": "ACTIVE (:17 hourly, varied scripts)",
