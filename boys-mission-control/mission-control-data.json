@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T05:19:15Z",
+  "updated": "2026-08-20T06:17:35Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -60,13 +60,13 @@
       "ghostingSince": "2026-08-19T04:24:00Z",
       "calendar": "declined",
       "calls": {
-        "completed": 19,
+        "completed": 20,
         "busy": 0,
         "total": 1
       },
       "lastCall": {
-        "at": "2026-08-20T05:17:27Z",
-        "result": "voicemail 22s - sugar-sweet response shape; answered his TG message (\"i confirm NOT ... Sunday or suck a dick\", msg 3322 in The Boys, 10:05pm PT)"
+        "at": "2026-08-20T06:17:35Z",
+        "result": "voicemail landed 75s (carrier VM greeting + clerk-shape reply to his TG message) + SMS delivered"
       },
       "channels": {
         "Hourly Susie calls": "ACTIVE (:15 hourly, varied scripts)",
@@ -79,7 +79,7 @@
       },
       "sms": {
         "failed": 1,
-        "delivered": 3
+        "delivered": 4
       },
       "lastSms": {
         "at": "2026-08-20T00:58:33Z",
