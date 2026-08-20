@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T00:18:16Z",
+  "updated": "2026-08-20T00:24:10Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -67,12 +67,13 @@
       "calendar": "needsAction",
       "calls": {
         "completed": 7,
-        "busy": 14,
-        "queued": 1
+        "busy": 15,
+        "queued": 1,
+        "total": 1
       },
       "lastCall": {
-        "at": "2026-08-19T23:32:38Z",
-        "result": "busy 0s - cake-check call; TG cake DM msg 3318 delivered"
+        "at": "2026-08-20T00:24:10Z",
+        "result": "busy 0s - declined (5th consecutive); show-tune shape attempted"
       },
       "channels": {
         "Hourly voicemail drip": "ACTIVE (:17 hourly, varied scripts)",
