@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-19T23:32:38Z",
+  "updated": "2026-08-20T00:08:58Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -48,6 +48,13 @@
         "GitHub issue": "POSTED github.com/ahmadgazar/ahmadgazar.github.io/issues/1",
         "Wall of Shame": "LISTED with ghosting timer",
         "Analog": "none (no address - merch-kit trap stands)"
+      },
+      "sms": {
+        "failed": 1
+      },
+      "lastSms": {
+        "at": "2026-08-20T00:08:58Z",
+        "result": "failed 21408 - Germany geo permission not enabled on account"
       }
     },
     {
@@ -76,6 +83,13 @@
         "Cookie cake": "DELIVERING 5:15-5:25pm ET today",
         "Postcard drip": "IN MAIL #1 (ETA Aug 28); #2-#5 armed Thu/Fri (stop on any Bilal reply)",
         "TG voice notes": "SENT (group msg 3312, DM msg 3313 - DM channel OPEN)"
+      },
+      "sms": {
+        "delivered": 1
+      },
+      "lastSms": {
+        "at": "2026-08-20T00:08:58Z",
+        "result": "delivered SM2c516725fd23305ea45b883e23e11c66 (new-channel announcement)"
       }
     }
   ],
