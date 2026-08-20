@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T13:24:53Z",
+  "updated": "2026-08-20T22:01:25Z",
   "deadline": "2026-08-22T20:00:00Z",
   "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
   "budget": {
@@ -36,9 +36,11 @@
       "twilio_consumed": 14.71,
       "postcard_1_reserved": 0.99,
       "certified_letter_committed": 5.21,
-      "postcards_2_5_committed": 3.96,
+      "postcards_2_5_committed": 2.97,
       "total_consumed_now": 81.22,
-      "total_consumed_plus_committed": 90.39
+      "total_consumed_plus_committed": 90.39,
+      "postcard_3_mailed": 1.09,
+      "postcard_3_id": "psc_9dc883e9e10122b0"
     },
     "float": {
       "twilio_balance": 5.29,
@@ -112,7 +114,8 @@
         "Wall of Shame": "LISTED with ghosting timer",
         "Cookie cake": "DELIVERING 5:15-5:25pm ET today",
         "Postcard drip": "IN MAIL #1 (ETA Aug 28); #2-#5 armed Thu/Fri (stop on any Bilal reply)",
-        "TG voice notes": "SENT (group msg 3312, DM msg 3313 - DM channel OPEN)"
+        "TG voice notes": "SENT (group msg 3312, DM msg 3313 - DM channel OPEN)",
+        "Postcard #3": "MAILED 3:01pm PT (psc_9dc883e9e10122b0, ETA Aug 31)"
       },
       "sms": {
         "delivered": 2
