@@ -1,5 +1,5 @@
 {
- "updated": "2026-08-20T11:17:10Z",
+ "updated": "2026-08-20T11:19:06Z",
  "deadline": "2026-08-22T20:00:00Z",
  "deadlineLabel": "Saturday Aug 22, 1pm PT / 10pm Berlin",
  "budget": {
@@ -94,14 +94,14 @@
    "ghostingSince": "2026-08-18T16:00:00Z",
    "calendar": "needsAction",
    "calls": {
-    "completed": 9,
+    "completed": 10,
     "busy": 20,
     "queued": 1,
     "total": 1
    },
    "lastCall": {
-    "at": "2026-08-20T10:19:17Z",
-    "result": "busy"
+    "at": "2026-08-20T11:19:06Z",
+    "result": "voicemail"
    },
    "channels": {
     "Hourly voicemail drip": "ACTIVE (:17 hourly, varied scripts)",
