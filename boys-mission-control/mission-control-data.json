@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T19:59:00-07:00",
+  "updated": "2026-08-21T22:04:00Z",
   "deadlineLabel": "a REAL date, named by the boys (no Sundays)",
   "budget": {
     "cap_usd": 100,
@@ -20,7 +20,7 @@
         "date": "2026-08-19",
         "merchant": "LOB.COM",
         "usd": 5,
-        "note": "Lob credit top-up #1 (postcards channel funding)"
+        "note": "Lob credit top-up #1 (postcards channel funding); card #5 (final) sent 8/21 3:01pm PT (psc_46e4f902721cac73, ETA Aug 31)"
       },
       {
         "date": "2026-08-19",
@@ -112,9 +112,10 @@
         "GitHub issue": "POSTED github.com/hammoudbilal/risk_aware_control/issues/1",
         "Wall of Shame": "LISTED with ghosting timer",
         "Cookie cake": "DELIVERING 5:15-5:25pm ET today",
-        "Postcard drip": "IN MAIL #1 (ETA Aug 28); #2-#5 armed Thu/Fri (stop on any Bilal reply)",
+        "Postcard drip": "COMPLETE - all cards mailed (#5 psc_46e4f902721cac73 ETA Aug 31); #4 (Fri 9am slot) never fired, no Lob object today before 3pm",
         "TG voice notes": "SENT (group msg 3312, DM msg 3313 - DM channel OPEN)",
-        "Postcard #3": "MAILED 3:01pm PT (psc_9dc883e9e10122b0, ETA Aug 31)"
+        "Postcard #3": "MAILED 3:01pm PT (psc_9dc883e9e10122b0, ETA Aug 31)",
+        "Postcard #5": "MAILED 3:01pm PT Fri Aug 21 (psc_46e4f902721cac73, ETA Aug 31) - final card of the drip"
       },
       "sms": {
         "delivered": 2
