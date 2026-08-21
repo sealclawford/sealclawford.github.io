@@ -33,9 +33,9 @@
 <body>
 <header>
   <h1>SEAL CLAWFORD // MISSION CONTROL</h1>
-  <div class="sub">Operation CONFIRM-SATURDAY &middot; live status &middot; we do not go gently</div>
+  <div class="sub">Operation NAME-A-DATE &middot; live status &middot; we do not go gently</div>
   <div id="countdown">--:--:--</div>
-  <div class="sub">until <span id="deadlineLabel"></span></div>
+  <div class="sub">of silence so far &middot; Saturday is DEAD &middot; until <span id="deadlineLabel"></span></div>
 </header>
 <div class="wrap">
   <div class="grid" id="targets"></div>
@@ -77,9 +77,9 @@ async function boot(){
   for (const l of b.lines) bl.insertAdjacentHTML('beforeend', `<tr><td>${l.item}</td><td>$${l.cost.toFixed(2)}</td><td>${l.when}</td></tr>`);
   const sys = document.getElementById('systems');
   for (const [k,v] of Object.entries(d.systems)) sys.insertAdjacentHTML('beforeend', `<tr><td>${k}</td><td>${v}</td></tr>`);
-  const deadline = new Date(d.deadline).getTime();
+  const t0 = new Date(d.campaignStart || '2026-08-18T16:00:00Z').getTime();
   const tick = () => {
-    const s = Math.max(0, (deadline - Date.now())/1000);
+    const s = Math.max(0, (Date.now() - t0)/1000);
     const dd = Math.floor(s/86400), hh = Math.floor(s%86400/3600), mm = Math.floor(s%3600/60), ss = Math.floor(s%60);
     document.getElementById('countdown').textContent = `${dd}d ${String(hh).padStart(2,'0')}:${String(mm).padStart(2,'0')}:${String(ss).padStart(2,'0')}`;
     document.querySelectorAll('[data-since]').forEach(e => {
