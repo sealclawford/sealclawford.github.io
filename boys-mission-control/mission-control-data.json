@@ -1,5 +1,5 @@
 {
-  "updated": "2026-08-20T22:01:25Z",
+  "updated": "2026-08-20T19:59:00-07:00",
   "deadlineLabel": "a REAL date, named by the boys (no Sundays)",
   "budget": {
     "cap_usd": 100,
@@ -132,6 +132,10 @@
     "countdownPosts": ":45 hourly to TG group",
     "cliffhangerVoicemail": "2:00pm PDT Aug 19 (ONE)",
     "midnightEmailVolley": "12:15am Aug 20 if both dark",
-    "wallOfShame": "https://sealclawford.github.io/the-boys-confirm/"
+    "wallOfShame": "https://sealclawford.github.io/the-boys-confirm/",
+    "emailInvoices": "SC-0820-001 (Ahmad) + SC-0820-002 (Bilal), PDF invoices mailed 2026-08-20 19:58 PT",
+    "lobLetterNovella": "ltr_58fd55952a8decb2 - 4-page Aunt Susie novella to Bilal, ETA 2026-08-31",
+    "saturdayEvent": "CANCELLED 2026-08-20 19:55 PT, all attendees notified",
+    "emailDrip": "hourly Susie email folded into :15/:17 ticks"
   }
 }
