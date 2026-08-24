@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mediterranean Trip 🌊</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    :root {
+      --gold: #c9a84c;
+      --gold-light: #f5e6b8;
+      --cream: #fdf8ef;
+      --dark: #1a1410;
+      --warm: #2c2318;
+      --ocean: #1a5276;
+    }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--dark); background: var(--cream); overflow-x: hidden; }
+
+    /* Cursor trail sparkle */
+    .sparkle { position: fixed; pointer-events: none; z-index: 9999; font-size: 12px; animation: sparkle-fade 0.8s forwards; }
+    @keyframes sparkle-fade { 0%{opacity:1;transform:translateY(0) scale(1)} 100%{opacity:0;transform:translateY(-30px) scale(0)} }
+
+    /* Hero */
+    .hero {
+      position: relative;
+      height: 100vh;
+      min-height: 700px;
+      background: url('https://images.unsplash.com/photo-1530841377377-3ff06c0ca713?w=1920&q=85') center/cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(26,20,16,0.6) 100%);
+    }
+    .hero-content { position: relative; z-index: 1; padding: 2rem; }
+    .hero-eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 6px;
+      font-size: 0.8rem;
+      color: var(--gold-light);
+      font-weight: 500;
+      margin-bottom: 1rem;
+    }
+    .hero h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 5.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: -2px;
+      line-height: 1;
+      background: linear-gradient(135deg, #fff 0%, var(--gold-light) 50%, #fff 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .hero .subtitle {
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 1.5rem;
+      opacity: 0.85;
+      margin-bottom: 2rem;
+    }
+    .hero-stats {
+      display: flex;
+      gap: 3rem;
+      justify-content: center;
+      margin-top: 2rem;
+    }
+    .hero-stat { text-align: center; }
+    .hero-stat .num { font-size: 2rem; font-weight: 600; color: var(--gold-light); }
+    .hero-stat .label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 2px; opacity: 0.7; }
+    .scroll-arrow {
+      position: absolute;
+      bottom: 3rem;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 1;
+      width: 30px;
+      height: 50px;
+      border: 2px solid rgba(255,255,255,0.4);
+      border-radius: 15px;
+      cursor: pointer;
+    }
+    .scroll-arrow::after {
+      content: '';
+      position: absolute;
+      top: 8px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 4px;
+      height: 10px;
+      background: var(--gold-light);
+      border-radius: 2px;
+      animation: scroll-bob 1.5s infinite;
+    }
+    @keyframes scroll-bob { 0%{top:8px;opacity:1} 100%{top:28px;opacity:0} }
+
+    /* Section layout */
+    .section { max-width: 1200px; margin: 0 auto; padding: 6rem 2rem; }
+    .section-dark { background: var(--warm); color: #e8ddd0; }
+    .section-accent { background: linear-gradient(135deg, #1a5276 0%, #0e3d5c 100%); color: white; }
+    .section h2 {
+      font-family: 'Playfair Display', serif;
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+    .section .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.75rem;
+      color: var(--gold);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+    }
+    .section-dark .eyebrow, .section-accent .eyebrow { color: var(--gold-light); }
+    .section .lead {
+      font-size: 1.15rem;
+      color: #6b5e50;
+      line-height: 1.8;
+      max-width: 650px;
+      margin-bottom: 3rem;
+    }
+    .section-dark .lead { color: #b8a99a; }
+    .section-accent .lead { color: rgba(255,255,255,0.7); }
+
+    /* Masonry gallery */
+    .masonry {
+      columns: 3;
+      column-gap: 1rem;
+      margin: 2rem 0;
+    }
+    .masonry img {
+      width: 100%;
+      border-radius: 12px;
+      margin-bottom: 1rem;
+      display: block;
+      transition: transform 0.4s, filter 0.4s;
+      filter: saturate(0.9);
+    }
+    .masonry img:hover { transform: scale(1.03); filter: saturate(1.2); }
+
+    /* Day cards — editorial layout */
+    .day-editorial {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0;
+      margin-bottom: 0;
+      min-height: 80vh;
+    }
+    .day-editorial:nth-child(even) .day-img { order: 2; }
+    .day-editorial:nth-child(even) .day-text { order: 1; }
+    .day-img {
+      position: relative;
+      overflow: hidden;
+    }
+    .day-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 8s ease;
+    }
+    .day-img:hover img { transform: scale(1.05); }
+    .day-text {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 4rem 5rem;
+    }
+    .day-text .day-num {
+      font-family: 'Playfair Display', serif;
+      font-size: 5rem;
+      color: var(--gold);
+      opacity: 0.3;
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+    .day-text .eyebrow { margin-bottom: 0.5rem; }
+    .day-text h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 2.2rem;
+      margin-bottom: 1rem;
+    }
+    .day-text p { color: #6b5e50; line-height: 1.8; margin-bottom: 0.8rem; font-size: 1rem; }
+    .day-dark .day-text p { color: #b8a99a; }
+    .day-dark .day-text .day-num { color: var(--gold-light); }
+    .tags { margin-top: 1rem; }
+    .tag {
+      display: inline-block;
+      border: 1px solid var(--gold);
+      color: var(--gold);
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.75rem;
+      margin: 0.15rem;
+      font-weight: 500;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    .day-dark .tag { border-color: var(--gold-light); color: var(--gold-light); }
+
+    /* Full bleed photo */
+    .full-bleed {
+      width: 100%;
+      height: 60vh;
+      object-fit: cover;
+    }
+
+    /* Budget */
+    .budget-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .budget-card {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 16px;
+      padding: 2rem;
+      text-align: center;
+    }
+    .budget-card .amount {
+      font-family: 'Playfair Display', serif;
+      font-size: 2rem;
+      color: var(--gold-light);
+      margin-bottom: 0.3rem;
+    }
+    .budget-card .cat { font-size: 0.85rem; opacity: 0.7; text-transform: uppercase; letter-spacing: 1px; }
+    .budget-total {
+      text-align: center;
+      margin-top: 2rem;
+      padding-top: 2rem;
+      border-top: 1px solid rgba(255,255,255,0.15);
+    }
+    .budget-total .amount { font-family: 'Playfair Display', serif; font-size: 3rem; color: var(--gold-light); }
+    .budget-total .cat { font-size: 0.9rem; opacity: 0.7; }
+
+    /* TBD */
+    .tbd {
+      background: rgba(201,168,76,0.1);
+      border: 1px solid rgba(201,168,76,0.3);
+      border-radius: 16px;
+      padding: 2.5rem;
+      margin-top: 3rem;
+      max-width: 700px;
+    }
+    .tbd h3 {
+      font-family: 'Playfair Display', serif;
+      font-size: 1.5rem;
+      color: var(--gold);
+      margin-bottom: 1rem;
+    }
+    .tbd ul { list-style: none; padding: 0; }
+    .tbd li { padding: 0.5rem 0; color: #6b5e50; }
+    .tbd li::before { content: "◆ "; color: var(--gold); font-size: 0.6rem; vertical-align: middle; margin-right: 0.3rem; }
+
+    /* Footer */
+    footer {
+      text-align: center;
+      padding: 4rem 2rem;
+      background: var(--dark);
+      color: #665c50;
+      font-size: 0.85rem;
+    }
+    footer a { color: var(--gold); text-decoration: none; }
+    footer .seal { font-size: 3rem; margin-bottom: 1rem; }
+
+    /* Responsive */
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 3rem; }
+      .hero-stats { gap: 1.5rem; }
+      .day-editorial { grid-template-columns: 1fr; min-height: auto; }
+      .day-editorial:nth-child(even) .day-img { order: 0; }
+      .day-editorial:nth-child(even) .day-text { order: 0; }
+      .day-img { height: 50vh; }
+      .day-text { padding: 3rem 2rem; }
+      .day-text .day-num { font-size: 3rem; }
+      .masonry { columns: 1; }
+      .section h2 { font-size: 2.2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Hero -->
+  <div class="hero">
+    <div class="hero-content">
+      <p class="hero-eyebrow">Summer 2026</p>
+      <h1>The Mediterranean</h1>
+      <p class="subtitle">Where the sun kisses the sea</p>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">10</div><div class="label">Days</div></div>
+        <div class="hero-stat"><div class="num">5</div><div class="label">Stops</div></div>
+        <div class="hero-stat"><div class="num">∞</div><div class="label">Vibes</div></div>
+      </div>
+    </div>
+    <a href="#intro" class="scroll-arrow"></a>
+  </div>
+
+  <!-- Intro -->
+  <div class="section" id="intro">
+    <div class="eyebrow">The Journey</div>
+    <h2>Istanbul → Athens</h2>
+    <p class="lead">Pristine beaches. Late-night parties. Chess at golden hour. And the kind of lazy afternoons where the biggest decision is whether to swim or nap. Ten days of the good life.</p>
+
+    <div class="masonry">
+      <img src="https://images.unsplash.com/photo-1570077188670-e3a8d69ac5ff?w=600&q=80" alt="Turquoise cove">
+      <img src="https://images.unsplash.com/photo-1515488764276-beab7607c1e6?w=600&q=80" alt="Whitewashed stairs">
+      <img src="https://images.unsplash.com/photo-1602002418816-5c0aeef426aa?w=600&q=80" alt="Golden sunset">
+      <img src="https://images.unsplash.com/photo-1504512485720-7d83a16ee930?w=600&q=80" alt="Greek village">
+      <img src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?w=600&q=80" alt="Crystal water">
+      <img src="https://images.unsplash.com/photo-1586861203927-800a5acdcc4d?w=600&q=80" alt="Harbor boats">
+    </div>
+  </div>
+
+  <!-- Day 1-3: Istanbul -->
+  <div class="day-editorial">
+    <div class="day-img">
+      <img src="https://images.unsplash.com/photo-1524231757912-21f4fe3a7200?w=1200&q=85" alt="Istanbul skyline Bosphorus">
+    </div>
+    <div class="day-text">
+      <div class="day-num">01</div>
+      <div class="eyebrow">Days 1–3</div>
+      <h3>Istanbul</h3>
+      <p>Two continents, one city, infinite food. The Grand Bazaar will overwhelm your senses. Hagia Sophia will make you feel small in the best way. And the kebabs — oh, the kebabs.</p>
+      <p>Nights in Karaköy: rooftop cocktails, live jazz, clubs that spill out onto cobblestone streets until 4am. This is where the trip earns its party credentials.</p>
+      <p>Morning after: Turkish breakfast spread (the real kind — twenty small plates) and backgammon with strangers.</p>
+      <div class="tags">
+        <span class="tag">🍖 feast</span>
+        <span class="tag">🎶 nightlife</span>
+        <span class="tag">🕌 wonder</span>
+        <span class="tag">♟️ games</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Day 4: Transit -->
+  <div class="day-editorial day-dark" style="background: var(--warm);">
+    <div class="day-img">
+      <img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?w=1200&q=85" alt="Aegean sea aerial">
+    </div>
+    <div class="day-text">
+      <div class="day-num">04</div>
+      <div class="eyebrow">Day 4</div>
+      <h3>The Crossing</h3>
+      <p>Leave Istanbul behind. The Aegean stretches out below — impossibly blue, dotted with islands like scattered jewels.</p>
+      <p>Travel days are underrated. Chess on the ferry deck, sun on your face, nowhere to be except exactly where you're going.</p>
+      <div class="tags">
+        <span class="tag">⛴️ ferry</span>
+        <span class="tag">♟️ deck chess</span>
+        <span class="tag">🌊 aegean</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full bleed -->
+  <img class="full-bleed" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=1920&q=85" alt="Pristine Mediterranean beach">
+
+  <!-- Days 5-7: Greek Islands -->
+  <div class="day-editorial">
+    <div class="day-img">
+      <img src="https://images.unsplash.com/photo-1613395877344-13d4a8e0d49e?w=1200&q=85" alt="Sarakiniko Milos moonscape">
+    </div>
+    <div class="day-text">
+      <div class="day-num">05</div>
+      <div class="eyebrow">Days 5–7</div>
+      <h3>The Islands</h3>
+      <p><strong>Milos</strong> — Sarakiniko beach is another planet. White volcanic rock sculpted by wind, turquoise water so clear you can count fish from the cliff. This is your postcard moment.</p>
+      <p><strong>Mykonos</strong> — One night. That's all you need (and all your wallet can handle). Beach clubs where DJs play until the sun comes up. Earn your hangover.</p>
+      <p><strong>Naxos</strong> — Recovery mode. Longest beaches in the Cyclades, proper village tavernas, rent an ATV and get lost on mountain roads. Chess in the harbor with a cold Mythos.</p>
+      <div class="tags">
+        <span class="tag">🏖️ pristine</span>
+        <span class="tag">🎉 party</span>
+        <span class="tag">🛵 adventure</span>
+        <span class="tag">🧘 recover</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Days 8-9: Crete -->
+  <div class="day-editorial day-dark" style="background: var(--warm);">
+    <div class="day-img">
+      <img src="https://images.unsplash.com/photo-1598755257130-c2aaca1f061c?w=1200&q=85" alt="Crete Elafonissi pink beach">
+    </div>
+    <div class="day-text">
+      <div class="day-num">08</div>
+      <div class="eyebrow">Days 8–9</div>
+      <h3>Crete</h3>
+      <p>Elafonissi. Pink sand. Shallow lagoon that glows turquoise in the afternoon light. You'll think the photos are edited. They're not.</p>
+      <p>Drive the northern coast road to Chania. The Venetian harbor at sunset is cinematic — old stone walls, fishing boats, the smell of grilled octopus.</p>
+      <p>This is the chillax chapter. Raki with locals. Chess on the harbor wall. The kind of evening where nobody checks the time.</p>
+      <div class="tags">
+        <span class="tag">🏖️ elafonissi</span>
+        <span class="tag">🍷 raki nights</span>
+        <span class="tag">♟️ sunset chess</span>
+        <span class="tag">🚗 coast road</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Full bleed -->
+  <img class="full-bleed" src="https://images.unsplash.com/photo-1529528744093-6f8abeee7571?w=1920&q=85" alt="Golden hour on the water">
+
+  <!-- Day 10: Athens -->
+  <div class="day-editorial">
+    <div class="day-img">
+      <img src="https://images.unsplash.com/photo-1555993539-1732b0258235?w=1200&q=85" alt="Acropolis Athens">
+    </div>
+    <div class="day-text">
+      <div class="day-num">10</div>
+      <div class="eyebrow">Day 10</div>
+      <h3>Athens</h3>
+      <p>The grand finale. Acropolis at dawn — before the crowds, before the heat. Stand where people stood 2,500 years ago and feel very briefly profound.</p>
+      <p>Wander Plaka. Souvlaki at Kostas (tiny shop, cash only, no menu, just trust). Last supper on a rooftop — Parthenon glowing gold across the skyline.</p>
+      <p>Fly home tanned, tired, and already planning the next one.</p>
+      <div class="tags">
+        <span class="tag">🏛️ acropolis</span>
+        <span class="tag">🥙 souvlaki</span>
+        <span class="tag">🌙 last night</span>
+        <span class="tag">✈️ home</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- Budget -->
+  <div class="section-accent">
+    <div class="section">
+      <div class="eyebrow">The Investment</div>
+      <h2>What It Costs</h2>
+      <p class="lead">Per person. Mid-range luxury — shared Airbnbs, real restaurants (not tourist traps), and one splurge night in Mykonos you'll pretend to regret.</p>
+
+      <div class="budget-grid">
+        <div class="budget-card">
+          <div class="amount">$400–700</div>
+          <div class="cat">Flights</div>
+        </div>
+        <div class="budget-card">
+          <div class="amount">$300–500</div>
+          <div class="cat">Accommodation</div>
+        </div>
+        <div class="budget-card">
+          <div class="amount">$150–250</div>
+          <div class="cat">Transport</div>
+        </div>
+        <div class="budget-card">
+          <div class="amount">$400–600</div>
+          <div class="cat">Food & Drink</div>
+        </div>
+        <div class="budget-card">
+          <div class="amount">$200–400</div>
+          <div class="cat">Nightlife & Fun</div>
+        </div>
+      </div>
+
+      <div class="budget-total">
+        <div class="amount">$1,450 – $2,450</div>
+        <div class="cat">estimated per person</div>
+      </div>
+
+      <div class="tbd">
+        <h3>Still TBD</h3>
+        <ul>
+          <li>Who's actually coming? (travel situations are... complicated)</li>
+          <li>Exact dates — late June or July?</li>
+          <li>Visa check for Turkey + Greece</li>
+          <li>More stops? Croatia, Montenegro, southern Italy are all close</li>
+          <li>Shared Airbnbs or separate rooms?</li>
+          <li>Chess rules: blitz, rapid, or we settling this classical?</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    <div class="seal">🦭</div>
+    <p>Curated with love by <a href="index.html">Seal Clawford</a></p>
+    <p style="margin-top:0.5rem; opacity:0.5;">Summer 2026 — if we can get out of our countries</p>
+  </footer>
+
+  <!-- Sparkle cursor trail -->
+  <script>
+    const sparkles = ['✦','✧','·','⋆'];
+    let lastSparkle = 0;
+    document.addEventListener('mousemove', e => {
+      if (Date.now() - lastSparkle < 80) return;
+      lastSparkle = Date.now();
+      const s = document.createElement('div');
+      s.className = 'sparkle';
+      s.style.left = e.clientX + 'px';
+      s.style.top = e.clientY + 'px';
+      s.style.color = Math.random() > 0.5 ? '#c9a84c' : '#e8ddd0';
+      s.textContent = sparkles[Math.floor(Math.random()*sparkles.length)];
+      document.body.appendChild(s);
+      setTimeout(() => s.remove(), 800);
+    });
+  </script>
+
+</body>
+</html>

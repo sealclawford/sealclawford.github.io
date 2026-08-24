@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Messaging from Seal Clawford</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+      background: linear-gradient(135deg, #0c1d3a 0%, #1a3a5c 40%, #2d6187 70%, #4a9cb5 100%);
+      color: #e8f0f8;
+      min-height: 100vh;
+      padding: 2.5rem 1.5rem;
+      line-height: 1.6;
+    }
+    main { max-width: 640px; margin: 0 auto; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.25rem; }
+    .sub { opacity: 0.8; margin-bottom: 2rem; }
+    section {
+      background: rgba(255,255,255,0.08);
+      backdrop-filter: blur(10px);
+      border-radius: 16px;
+      padding: 1.5rem;
+      margin-bottom: 1.25rem;
+    }
+    h2 { font-size: 1.15rem; margin-bottom: 0.6rem; }
+    p + p { margin-top: 0.6rem; }
+    a { color: #a8dcff; }
+
+    label { display: block; margin-top: 0.7rem; font-size: 0.95rem; }
+    input[type="text"], input[type="tel"] {
+      width: 100%; padding: 0.55rem 0.7rem; margin-top: 0.25rem;
+      border-radius: 8px; border: 1px solid rgba(255,255,255,0.25);
+      background: rgba(255,255,255,0.1); color: #e8f0f8; font-size: 1rem;
+    }
+    .checkrow { display: flex; gap: 0.6rem; align-items: flex-start; margin-top: 0.9rem; }
+    .checkrow input { margin-top: 0.3rem; }
+    button {
+      margin-top: 1rem; padding: 0.7rem 1.4rem; border: none; border-radius: 10px;
+      background: #a8dcff; color: #0c1d3a; font-size: 1rem; font-weight: 600; cursor: pointer;
+    }
+    #optin-done { display: none; margin-top: 0.8rem; color: #b6f2c1; }
+    footer { opacity: 0.6; font-size: 0.85rem; text-align: center; margin-top: 1.5rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>Text Messaging from Seal Clawford</h1>
+  <p class="sub">How texting from this number works, and how consent is collected.</p>
+
+  <section>
+    <h2>Who this is</h2>
+    <p>This messaging number belongs to Seal Clawford, a sole proprietor. It is used for one-to-one, non-marketing text messages sent at Seal's direction - for example appointment reminders, scheduling coordination, and account notifications. Message volume is low. No promotional or marketing campaigns are sent, and no lead generation takes place.</p>
+  </section>
+
+  <section>
+    <h2>How people opt in</h2>
+    <p><strong>Texting is always optional.</strong> No one ever needs to receive texts to schedule, purchase, or get any product or service from Seal Clawford. Phone and email are always offered as full alternatives, and most people never receive a text at all. Consent to text is never bundled into any other agreement, terms acceptance, booking, or purchase.</p>
+    <p>People receive texts from this number only after giving consent directly to Seal Clawford. Consent is collected verbally or in writing in an existing one-to-one context: in person, on a phone call, or in an existing email or text conversation. The person provides their mobile number and explicitly asks or agrees to be reachable by text at that number, including by Seal's assistant.</p>
+    <p>After consent is given, Seal records the date and context of the consent. The first text message sent to that number identifies who it is from. Only people who have completed this process ever receive messages - there are no purchased, scraped, or third-party contact lists.</p>
+    <p>Prefer to opt in by text instead? Send <strong>SEAL</strong> to <strong>+1&nbsp;857&nbsp;341&nbsp;6628</strong> from your mobile. You will receive a confirmation text, and you can reply STOP at any time to opt out.</p>
+  </section>
+
+
+  <section>
+    <h2>Opt in online</h2>
+    <p>You can also opt in right here. Enter your name and mobile number, check the consent box, and submit. This opens your messaging app with the keyword <strong>SEAL</strong> prefilled - send that text to <strong>+1&nbsp;857&nbsp;341&nbsp;6628</strong> and you are opted in. You will get a text confirming your opt-in.</p>
+    <form id="optin-form">
+      <label for="optin-name">Your name
+        <input type="text" id="optin-name" name="name" autocomplete="name" required>
+      </label>
+      <label for="optin-phone">Your mobile number
+        <input type="tel" id="optin-phone" name="phone" autocomplete="tel" placeholder="+1 555 123 4567" required>
+      </label>
+      <div class="checkrow">
+        <input type="checkbox" id="optin-consent" required>
+        <label for="optin-consent" style="margin-top:0">I agree to receive one-to-one, non-marketing text messages from Seal Clawford at the mobile number I entered, including messages sent by his assistant. Message frequency varies. Message and data rates may apply. Reply STOP to opt out at any time, HELP for help. Consent is not a condition of any purchase, booking, or service. You can always reach Seal Clawford by phone or email instead.</label>
+      </div>
+      <button type="submit">Opt in by text</button>
+      <p id="optin-done">Your messaging app should now be open with SEAL prefilled - just hit send to finish opting in.</p>
+    </form>
+  </section>
+  <section>
+    <h2>Opting out</h2>
+    <p>Reply <strong>STOP</strong> to any message to opt out immediately. A confirmation is sent and no further messages follow unless you opt in again. Reply <strong>HELP</strong> for help. You can also ask Seal directly to stop texting you.</p>
+  </section>
+
+  <section>
+    <h2>Disclosures</h2>
+    <p>Message frequency varies. Message and data rates may apply. Service is provided over standard U.S. carrier networks.</p>
+  </section>
+
+  <section>
+    <h2>Policies</h2>
+    <p><a href="/privacy.html">Privacy policy</a> &middot; <a href="/terms.html">Terms and conditions</a></p>
+  </section>
+
+  <section>
+    <h2>Privacy policy</h2>
+    <p>Mobile phone numbers shared with Seal Clawford are used only to send the text messages described above. Numbers are never sold, rented, or shared with third parties for their marketing purposes. No mobile information will be shared with third parties or affiliates for marketing or promotional purposes. Data is retained only as long as needed to maintain the messaging relationship and consent records.</p>
+  </section>
+
+  <section>
+    <h2>Contact</h2>
+    <p>Questions about texts from this number: email <a href="mailto:sealclawford@gmail.com">sealclawford@gmail.com</a>.</p>
+  </section>
+
+  <footer><a href="/">sealclawford.github.io</a> · Seal Clawford</footer>
+</main>
+
+<script>
+document.getElementById('optin-form').addEventListener('submit', function (e) {
+  e.preventDefault();
+  document.getElementById('optin-done').style.display = 'block';
+  window.location.href = 'sms:+18573416628?&body=SEAL';
+});
+</script>
+</body>
+</html>
